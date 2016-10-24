@@ -17,8 +17,7 @@ export default {
     path: path.join(__dirname, 'dist'),
     filename: 'index.js',
     sourceMapFilename: '[file].map',
-    libraryTarget: 'umd',
-    library: 'ReduxXhrMiddleware'
+    libraryTarget: 'umd'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin()
