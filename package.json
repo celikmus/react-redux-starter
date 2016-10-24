@@ -1,0 +1,12 @@
+{
+  "name": "react-redux-starter",
+  "version": "0.0.1",
+  "description": "Started boilerplate for a React Redux application",
+  "main": "src/index.js",
+  "repository": {
+    "url": "git@github.com:celikmus/react-redux-starter.git",
+    "type": "git"
+  },
+  "author": "Mustafa Celik <celikmus@gmail.com>",
+  "license": "MIT"
+}
