@@ -25,7 +25,7 @@ module.exports = {
   env: process.env.NODE_ENV,
   entry: {
     app: path.resolve(PATHS.client, 'index.js'),
-    vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router']
+    vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router', 'babel-polyfill']
   },
 
   output: {

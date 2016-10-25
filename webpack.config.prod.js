@@ -1,33 +1,75 @@
-import path from 'path';
-import webpack from 'webpack';
+const webpack = require('webpack');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-export default {
+const PATHS = {
+  src: path.resolve(__dirname, 'src'),
+  build: path.resolve(__dirname, 'dist')
+};
+
+module.exports = {
+  env: process.env.NODE_ENV,
+  entry: {
+    app: path.resolve(PATHS.src, 'index.js'),
+    vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router', 'babel-polyfill']
+  },
+
+  output: {
+    filename: '[name].js',
+    sourceMapFilename: '[file].map',
+    path: path.join(PATHS.build, 'assets'),
+    publicPath: '/assets/'
+  },
+
+  debug: false,
   devtool: 'source-map',
-  entry: [
-    path.join(__dirname, 'src')
-  ],
+
+  stats: {
+    colors: true,
+    reasons: true
+  },
+
   module: {
+    preLoaders: [{
+      test: /\.js$/,
+      include: PATHS.client,
+      loader: 'eslint'
+    }],
     loaders: [{
-      test: /\.js?$/,
-      include: [path.join(__dirname, 'src')],
+      test: /\.(js|jsx)$/,
+      include: PATHS.client,
       loader: 'babel'
+    }, {
+      test: /\.scss/,
+      loader: 'style!css!postcss!sass?outputStyle=expanded'
+    }, {
+      test: /\.(png|jpg|woff|woff2|ttf|svg|eot|gif)$/,
+      loader: 'url?limit=8192'
+    }, {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url?limit=10000&mimetype=application/font-woff'
+    }, {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'file'
     }]
   },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'index.js',
-    sourceMapFilename: '[file].map',
-    libraryTarget: 'umd'
-  },
+  postcss: () => [autoprefixer],
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new StyleLintPlugin({
-      context: 'src',
-      syntax: 'scss'
-    }),
+    // new StyleLintPlugin({
+    //   context: 'src',
+    //   syntax: 'scss'
+    // }),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new CopyWebpackPlugin([
+      {from: 'src/index.html', to: '..'},
+      {context: 'src/assets', from: '**/*', to: '../assets'}
+    ])
   ]
 };
