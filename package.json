@@ -1,6 +1,6 @@
 {
   "name": "react-redux-starter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Starter boilerplate for a React Redux application",
   "main": "dist",
   "repository": {
