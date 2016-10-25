@@ -3,8 +3,7 @@ const path = require('path');
 const open = require('open');
 const autoprefixer = require('autoprefixer');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const WEBPACK_DEV_SERVER_PORT = 9000;
-const EXRESS_SERVER_PORT = 3000;
+const serverConfig = require('./config/server');
 
 const PATHS = {
   client: path.resolve(__dirname, 'src'),
@@ -16,7 +15,7 @@ function OpenPlugin() {
   OpenPlugin.prototype.apply = (compiler) => {
     compiler.plugin('done', () => {
       if (firstTime) {
-        open(`http://localhost:${WEBPACK_DEV_SERVER_PORT}`);
+        open(`http://localhost:${serverConfig.development.devServerPort}`);
         firstTime = false;
       }
     });
@@ -83,11 +82,11 @@ module.exports = {
 
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),
-    port: WEBPACK_DEV_SERVER_PORT,
+    port: serverConfig.development.devServerPort,
     proxy: [
       {
         context: '/api',
-        target: `http://localhost:${EXRESS_SERVER_PORT}`,
+        target: `http://localhost:${serverConfig.development.apiPort}`,
         secure: false
       }
     ]

@@ -1,7 +1,9 @@
 
 const serverConfig = {
   'development': {
-    api: '/api'
+    api: '/api',
+    apiPort: 3001,
+    devServerPort: 3000
   },
   'production': {
     api: 'https://myLovelyApiServer/api'
