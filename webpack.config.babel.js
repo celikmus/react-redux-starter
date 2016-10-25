@@ -20,6 +20,14 @@ export default {
     libraryTarget: 'umd'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new StyleLintPlugin({
+      context: 'src',
+      syntax: 'scss'
+    }),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.optimize.UglifyJsPlugin()
   ]
 };

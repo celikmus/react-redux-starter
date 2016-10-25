@@ -72,15 +72,13 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-      __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+      'process.env.NODE_ENV': JSON.stringify('development')
     }),
     new StyleLintPlugin({
       context: 'src',
       syntax: 'scss'
     }),
     new OpenPlugin()
-
   ],
 
   devServer: {
