@@ -53,6 +53,7 @@
     "react/no-find-dom-node": 0,
     "import/no-named-as-default": 0,
     "no-multi-str": 0,
-    "react/require-extension": 0
+    "react/require-extension": 0,
+    "no-param-reassign": [2, {"props": false}]
   }
 }
