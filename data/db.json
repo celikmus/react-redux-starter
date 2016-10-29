@@ -1,9 +1,16 @@
 {
   "posts": [
-    { "id": 1, "title": "hello world", "author": "bob" }
+    { "id": 1, "title": "hello world", "author": "bobb", "comments": [1, 2]}
+    { "id": 2, "title": "my second post!", "author": "marya", "comments": [3]}
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    { "id": 1, "body": "some comment", "post": 1, "author": "marya" },
+    { "id": 2, "body": "another comment", "post": 1, "author": "kathye"  },
+    { "id": 3, "body": "wow comment", "post": 2, "author": "bobb"  }
   ],
-  "profile": { "name": "sponge" }
+  "authors": [
+    { "username": "bobb", "firstName": "Bob", "surname": "Briggs", "comments": [3], "posts": [1] },
+    { "username": "marya", "firstName": "Mary", "surname": "Allesy", "comments": [1], "posts": [2] },
+    { "username": "kathye", "firstName": "Kathy", "surname": "Teller", "comments": [2],  "posts": [] }
+  ]
 }
