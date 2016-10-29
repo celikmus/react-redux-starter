@@ -1,8 +1,11 @@
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import xhrMiddlewareCreator from 'redux-xhr-middleware';
 import serverConfig from '../../config/server';
+import entities from './entities';
 
-const rootReducer = combineReducers({root: () => ''});
+const rootReducer = combineReducers({
+  entities
+});
 const env = process.env.NODE_ENV;
 export default function configureStore(initialState) {
   const xhrMiddleware = xhrMiddlewareCreator({
