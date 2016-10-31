@@ -36,7 +36,7 @@ module.exports = {
 
   cache: true,
   debug: true,
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
 
   stats: {
     colors: true,
