@@ -1,7 +1,7 @@
 
 const serverConfig = {
   'development': {
-    api: '/api',
+    api: 'http://localhost:3001',
     apiPort: 3001,
     devServerPort: 3000
   },
