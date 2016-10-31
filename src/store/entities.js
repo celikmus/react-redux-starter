@@ -1,9 +1,10 @@
+import merge from 'lodash/merge';
 import {Schema, arrayOf} from 'normalizr';
 
 const initialEntities = {
-  authors: [],
-  posts: [],
-  comments: []
+  authors: {},
+  posts: {},
+  comments: {}
 };
 
 const authorSchema = new Schema('authors');
@@ -52,7 +53,7 @@ const mergeObject = (dest, src) => {
 // Update an entities upon an action with payload.entities.
 export default function entities(state = {...initialEntities}, action) {
   if (action.payload && action.payload.entities) {
-    const nextState = _.merge({}, state);
+    const nextState = merge({}, state);
     return mergeObject(nextState, action.payload.entities);
   }
   return state;
