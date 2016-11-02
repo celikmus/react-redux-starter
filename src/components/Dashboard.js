@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {actions} from './dashboard.reducer';
 import './Dashboard.scss';
 
 class Dashboard extends Component {
@@ -6,7 +8,11 @@ class Dashboard extends Component {
     super();
     this.state = {initialised: true};
   }
-
+  componentDidMount() {
+    this.props.getAuthors().then(() => {
+      this.props.getPosts();
+    });
+  }
   render() {
     return (
       <div>
@@ -17,7 +23,8 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-
+  getPosts: PropTypes.func.isRequired,
+  getAuthors: PropTypes.func.isRequired
 };
 
-export default Dashboard;
+export default connect(null, actions)(Dashboard);
