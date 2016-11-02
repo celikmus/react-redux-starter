@@ -2,14 +2,16 @@ import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import xhrMiddlewareCreator from 'redux-xhr-middleware';
 import serverConfig from '../../config/server';
 import entities from './entities';
+import dashboard from '../components/dashboard.reducer';
 
 const rootReducer = combineReducers({
-  entities
+  entities,
+  dashboard
 });
 const env = process.env.NODE_ENV;
 export default function configureStore(initialState) {
   const xhrMiddleware = xhrMiddlewareCreator({
-    gateway: serverConfig[env].api
+    requestGateway: serverConfig[env].api
   });
   let enhancer = applyMiddleware(xhrMiddleware);
   if (env === 'development') {

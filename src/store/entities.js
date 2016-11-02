@@ -11,17 +11,17 @@ const authorSchema = new Schema('authors');
 const postSchema = new Schema('posts');
 const commentSchema = new Schema('comments');
 
-authorSchema.define({
-  posts: arrayOf(postSchema),
-  comments: arrayOf(commentSchema),
-  idAttribute: 'username',
-  itemId: 'authorId' // key to populate in posts and comments
-});
-
 postSchema.define({
   comments: arrayOf(commentSchema),
   itemId: 'postId' // key to populate in comments
 });
+
+authorSchema.define({
+  posts: arrayOf(postSchema),
+  comments: arrayOf(commentSchema),
+  itemId: 'authorId' // key to populate in posts and comments
+});
+
 
 export const Schemas = {
   author: authorSchema,
