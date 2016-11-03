@@ -5,9 +5,9 @@
     { "id": 3, "title": "my third post!", "author": "marya"}
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "post": 1, "author": "marya" },
-    { "id": 2, "body": "another comment", "post": 1, "author": "kathye"  },
-    { "id": 3, "body": "wow comment", "post": 2, "author": "bobb"  }
+    { "id": 1, "body": "some comment", "post": 1, "author": "marya"},
+    { "id": 2, "body": "another comment", "post": 1, "author": "kathye"},
+    { "id": 3, "body": "wow comment", "post": 2, "author": "bobb"}
   ],
   "authors": [
     { "id": "bobb", "firstName": "Bob", "surname": "Briggs", "comments": [{ "id": 3, "body": "wow comment", "post": 2 }], "posts": [{ "id": 1, "title": "hello world"}] },
