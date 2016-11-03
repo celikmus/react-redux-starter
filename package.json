@@ -12,7 +12,7 @@
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-cli": "^6.16.0",
-    "babel-core": "^6.17.0",
+    "babel-core": "^6.18.2",
     "babel-eslint": "^7.0.0",
     "babel-jest": "^16.0.0",
     "babel-loader": "^6.2.5",
@@ -25,14 +25,14 @@
     "css-loader": "^0.25.0",
     "dotenv": "^2.0.0",
     "enzyme": "^2.5.1",
-    "eslint": "^3.8.1",
+    "eslint": "^3.9.0",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-config-standard": "^6.2.0",
-    "eslint-loader": "^1.6.0",
+    "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-promise": "^3.3.0",
-    "eslint-plugin-react": "^6.4.1",
+    "eslint-plugin-react": "^6.5.0",
     "eslint-plugin-standard": "^2.0.1",
     "file-loader": "^0.9.0",
     "jest": "^16.0.2",
@@ -61,7 +61,6 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js --inline --hot",
-    "prepublish": "yarn run clean && yarn run test && yarn run build",
     "posttest": "yarn run lint",
     "lint": "eslint src",
     "test": "node scripts/test.js --env=jsdom",
@@ -87,7 +86,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
-    "redux-actions": "^0.12.0",
-    "redux-xhr-middleware": "0.5.0"
+    "redux-actions": "^0.13.0",
+    "redux-xhr-middleware": "0.5.3"
   }
 }
