@@ -17,15 +17,19 @@ The output will be copied into in /dist directory.
 
 ## Features
 - [react](https://github.com/facebook/react)
+- [react-router](https://github.com/rackt/react-router)
 - [redux](https://github.com/rackt/redux)
 - [redux-devtools](redux-devtools)
 - [redux-xhr-middleware](https://github.com/celikmus/redux-xhr-middleware)
+- [normalizr](https://github.com/paularmstrong/normalizr)
 - [jest](https://github.com/facebook/jest)
 - [enzyme](https://github.com/airbnb/enzyme)
-- [react-router](https://github.com/rackt/react-router)
 - [webpack](https://github.com/webpack/webpack)
 - [babel](https://github.com/babel/babel)
 - [eslint](https://github.com/eslint/eslint)
 - [sass](https://github.com/sass/sass)
 - [stylelint](https://github.com/stylelint/stylelint)
 - [json-server](https://github.com/typicode/json-server)
+
+## Note:
+Normalizr integration is not fully stable yet. 
