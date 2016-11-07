@@ -55,7 +55,7 @@ module.exports = {
       loader: 'babel'
     }, {
       test: /\.scss/,
-      loader: 'style!css!postcss!sass?outputStyle=expanded'
+      loader: 'style!css?sourceMap!postcss!sass?outputStyle=expanded'
     }, {
       test: /\.(png|jpg|woff|woff2|ttf|svg|eot|gif)$/,
       loader: 'url?limit=8192'
