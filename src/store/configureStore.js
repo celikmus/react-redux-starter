@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
 const env = process.env.NODE_ENV;
 export default function configureStore(initialState) {
   const xhrMiddleware = xhrMiddlewareCreator({
-    requestGateway: serverConfig[env].api
+    apiGateway: serverConfig[env].api
   });
   let enhancer = applyMiddleware(xhrMiddleware);
   if (env === 'development') {
