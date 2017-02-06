@@ -8,8 +8,8 @@ const initialEntities = {
 };
 
 const authorSchema = new schema.Entity('authors', {
-  posts: [postSchema],
-  comments: [commentSchema],
+  // posts: [postSchema],
+  // comments: [commentSchema],
   itemId: 'authorId' // key to populate in posts and comments
 });
 const postSchema = new schema.Entity('posts', {
@@ -20,11 +20,8 @@ const commentSchema = new schema.Entity('comments');
 
 export const Schemas = {
   author: authorSchema,
-  authors: [authorSchema],
   post: postSchema,
-  posts: [postSchema],
-  comment: commentSchema,
-  comments: [commentSchema]
+  comment: commentSchema
 };
 
 // Copy properties of src object into dest object

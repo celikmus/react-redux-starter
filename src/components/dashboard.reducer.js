@@ -25,7 +25,7 @@ const getPosts = () => {
       url,
       method: 'GET'
     },
-    schema: Schemas.posts
+    schema: [Schemas.post]
   };
 };
 
@@ -37,7 +37,7 @@ const getAuthors = () => {
       url,
       method: 'GET'
     },
-    schema: Schemas.authors
+    schema: [Schemas.author]
   };
 };
 
@@ -62,7 +62,7 @@ const getComments = () => {
       url,
       method: 'GET'
     },
-    schema: Schemas.comments
+    schema: [Schemas.comment]
   };
 };
 
