@@ -54,6 +54,9 @@
     "import/no-named-as-default": 0,
     "no-multi-str": 0,
     "react/require-extension": 0,
-    "no-param-reassign": [2, {"props": false}]
+    "no-param-reassign": [2, {"props": false}],
+    "jsx-a11y/anchor-has-content": [2, {
+      "components": [""]
+    }],
   }
 }
