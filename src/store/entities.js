@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import {Schema, arrayOf} from 'normalizr';
+import {schema} from 'normalizr';
 
 const initialEntities = {
   authors: {},
@@ -7,29 +7,24 @@ const initialEntities = {
   comments: {}
 };
 
-const authorSchema = new Schema('authors');
-const postSchema = new Schema('posts');
-const commentSchema = new Schema('comments');
-
-postSchema.define({
-  comments: arrayOf(commentSchema),
-  itemId: 'postId' // key to populate in comments
-});
-
-authorSchema.define({
-  posts: arrayOf(postSchema),
-  comments: arrayOf(commentSchema),
+const authorSchema = new schema.Entity('authors', {
+  posts: [postSchema],
+  comments: [commentSchema],
   itemId: 'authorId' // key to populate in posts and comments
 });
-
+const postSchema = new schema.Entity('posts', {
+  comments: [commentSchema],
+  itemId: 'postId' // key to populate in comments
+});
+const commentSchema = new schema.Entity('comments');
 
 export const Schemas = {
   author: authorSchema,
-  authors: arrayOf(authorSchema),
+  authors: [authorSchema],
   post: postSchema,
-  posts: arrayOf(postSchema),
+  posts: [postSchema],
   comment: commentSchema,
-  comments: arrayOf(commentSchema)
+  comments: [commentSchema]
 };
 
 // Copy properties of src object into dest object
